@@ -1,0 +1,10 @@
+---
+- name: show version (2018)
+  debug:
+    var: version
+
+- name: assert version (2018)
+  ignore_errors: yes
+  assert:
+    that:
+      - version.startswith("2018.")

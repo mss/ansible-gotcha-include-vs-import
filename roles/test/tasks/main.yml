@@ -1,0 +1,19 @@
+---
+
+- name: show version
+  debug:
+    var: version
+
+- name: import tasks for current version
+  vars:
+    major_version: "{{ version.split('.')[0] }}"
+  block:
+    - import_tasks: "{{ major_version }}.yml"
+
+- name: include tasks for current version
+  vars:
+    major_version: "{{ version.split('.')[0] }}"
+  block:
+    - include_tasks: "{{ major_version }}.yml"
+
+ 
